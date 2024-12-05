@@ -1,0 +1,12 @@
+{
+  "name": "My Add-on",
+  "version": "1.0.0",
+  "slug": "my_addon",
+  "description": "A description of my add-on",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "services",
+  "boot": "auto",
+  "options": {},
+  "schema": {},
+  "image": "local/my_addon"
+}
