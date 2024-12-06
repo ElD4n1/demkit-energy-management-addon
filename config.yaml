@@ -1,0 +1,11 @@
+name: "DEMKit"
+description: "Home Energy Management made difficult"
+version: "1.0.0"
+slug: "demkit"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
