@@ -9,3 +9,4 @@ arch:
   - armhf
   - armv7
   - i386
+image: eldani/hass-demkit-addon:v1.0.0-beta1
