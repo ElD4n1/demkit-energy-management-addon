@@ -1,6 +1,6 @@
 name: "DEMKit"
 description: "Home Energy Management made difficult"
-version: "1.0.0-beta1"
+version: "1.0.0-beta5"
 slug: "demkit"
 init: false
 arch:
@@ -9,4 +9,4 @@ arch:
   - armhf
   - armv7
   - i386
-image: eldani/hass-demkit-addon:v1.0.0-beta1
+image: eldani/hass-demkit-addon:v1.0.0-beta5
