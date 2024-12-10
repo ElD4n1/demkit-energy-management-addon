@@ -1,6 +1,6 @@
 name: "DEMKit"
 description: "Home Energy Management made difficult"
-version: "1.0.0"
+version: "1.0.0-beta1"
 slug: "demkit"
 init: false
 arch:
