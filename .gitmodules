@@ -1,3 +1,3 @@
 [submodule "DEMKit"]
 	path = DEMKit
-	url = https://github.com/ElD4n1/DEMKit
+	url = git@github.com:ElD4n1/DEMKit.git
