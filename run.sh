@@ -9,4 +9,4 @@ DEMKIT_INFLUXDB="$(bashio::config 'demkit_influxdb' 'dem')"
 DEMKIT_INFLUXUSER="$(bashio::config 'demkit_influxuser' 'demkit')"
 DEMKIT_INFLUXPW="$(bashio::config 'demkit_influxpw' 'd1a2n3i4e5l6')"
 
-./DEMKit/scripts/autoexec.sh
+/app/demkit/scripts/autoexec.sh
