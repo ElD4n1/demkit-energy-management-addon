@@ -1,6 +1,6 @@
 name: "DEMKit"
 description: "Home Energy Management made difficult"
-version: "1.0.0-beta16"
+version: "v1.0.0-beta16"
 slug: "demkit"
 init: false
 image: docker.io/eldani/image-{arch}-demkit-addon
