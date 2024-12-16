@@ -1,2 +1,2 @@
-FROM eldani/hass-demkit-addon:v1.0.0-beta14
+FROM eldani/image-aarch64-demkit-addon:v1.0.0-beta15
 LABEL authors="daniel"
