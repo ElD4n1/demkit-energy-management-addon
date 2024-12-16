@@ -1,3 +1,5 @@
+#!/bin/sh
+
 CONFIG_PATH=/data/options.json
 
 DEMKIT_FOLDER="$(bashio::config 'demkit_folder' '/data/model/offgridhouse_real')"
