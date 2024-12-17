@@ -3,6 +3,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/DEMKit" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/DEMKit/example/offgridhouse_real" vcs="Git" />
   </component>
 </project>
