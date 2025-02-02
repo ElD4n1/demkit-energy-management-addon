@@ -3,6 +3,6 @@ description: "Home Energy Management made difficult"
 version: "v1.0.0-beta16"
 slug: "demkit"
 init: false
-image: docker.io/eldani/image-{arch}-demkit-addon
+#image: docker.io/eldani/image-{arch}-demkit-addon
 arch:
   - aarch64
