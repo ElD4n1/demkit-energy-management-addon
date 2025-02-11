@@ -18,9 +18,9 @@ RUN apk update && \
     jobs.crontab
 
 # Install the requirements from Pipfile globally
-COPY DEMKit/Pipfile /app/Pipfile
-COPY DEMKit/pipfile2req.py /app/pipfile2req.py
-WORKDIR /app
+COPY DEMKit/Pipfile /app/demkit/Pipfile
+COPY pipfile2req.py /app/demkit/pipfile2req.py
+WORKDIR /app/demkit
 RUN pip install requirementslib pydantic==1.*
 RUN python pipfile2req.py
 RUN pip install cython==0.29.37 numpy pybind11 pythran pkgconfig
@@ -40,23 +40,11 @@ COPY DEMKit/conf /app/demkit/conf
 COPY DEMKit/tmp /app/demkit/tmp
 COPY DEMKit/tools /app/demkit/tools
 COPY DEMKit/demkit.py /app/demkit/
-COPY DEMKit/docker /app/demkit/docker
 COPY DEMKit/scripts /app/demkit/scripts
 COPY DEMKit/example /app/demkit/example
-COPY PVLib/forecast_weather /app/forecast_weather
 
 RUN mkdir /zmq
 RUN mkdir /app/workspace
-
-WORKDIR /app/demkit/
-RUN rm -Rf docker
-
-# # Now setup DEMKit itself
-WORKDIR /app/demkit
-
-# Finally export everything
-VOLUME /app/workspace
-VOLUME /root/.ssh
 
 # Set the default environment variables
 ENV DEMKIT_COMPONENTS=/app/demkit/components/
@@ -65,9 +53,17 @@ ENV DEMKIT_INFLUXPORT=8068
 ENV DEMKIT_INFLUXDB=dem
 ENV DEMKIT_INFLUXUSER=demkit
 
-RUN chmod +x ./scripts/autoexec.sh
-
-# Replace %INSTALL_PATH% with /app/forecast_weather in jobs.crontab
+# Install the forecast weather library
+COPY PVLib/forecast_weather /app/forecast_weather
+COPY pipfile2req.py /app/forecast_weather/pipfile2req.py
+WORKDIR /app/forecast_weather
+RUN python pipfile2req.py && pip install -r requirements.txt && rm -f requirements.txt pipfile2req.py Pipfile
 RUN sed 's|%INSTALL_PATH%|/app/forecast_weather|g' /etc/periodic/jobs.crontab
+
+# Finally export everything
+VOLUME /app/workspace
+VOLUME /root/.ssh
+
+RUN chmod +x ./scripts/autoexec.sh
 
 CMD ["./scripts/autoexec.sh"]
