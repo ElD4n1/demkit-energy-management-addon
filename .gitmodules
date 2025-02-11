@@ -1,6 +1,6 @@
 [submodule "DEMKit"]
 	path = DEMKit
 	url = git@github.com:ElD4n1/DEMKit.git
-[submodule "example/offgridhouse_real"]
-	path = example/offgridhouse_real
-	url = git@github.com:ElD4n1/offgridhouse_real.git
+[submodule "PVLib"]
+	path = PVLib
+	url = git@github.com:ElD4n1/PVLib.git
