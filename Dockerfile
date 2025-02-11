@@ -14,7 +14,8 @@ RUN apk update && \
     git \
     libzmq \
     zeromq-dev \
-    hdf5-dev
+    hdf5-dev \
+    jobs.crontab
 
 # Install the requirements from Pipfile globally
 COPY DEMKit/Pipfile /app/Pipfile
@@ -42,6 +43,7 @@ COPY DEMKit/demkit.py /app/demkit/
 COPY DEMKit/docker /app/demkit/docker
 COPY DEMKit/scripts /app/demkit/scripts
 COPY DEMKit/example /app/demkit/example
+COPY PVLib/forecast_weather /app/forecast_weather
 
 RUN mkdir /zmq
 RUN mkdir /app/workspace
@@ -64,5 +66,8 @@ ENV DEMKIT_INFLUXDB=dem
 ENV DEMKIT_INFLUXUSER=demkit
 
 RUN chmod +x ./scripts/autoexec.sh
+
+# Replace %INSTALL_PATH% with /app/forecast_weather in jobs.crontab
+RUN sed 's|%INSTALL_PATH%|/app/forecast_weather|g' /etc/periodic/jobs.crontab
 
 CMD ["./scripts/autoexec.sh"]
